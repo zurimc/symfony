@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Messurementunits list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Datecreate</th>
+                <th>Dateupdate</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for messurementUnit in messurementUnits %}
+            <tr>
+                <td><a href="{{ path('messurementunits_show', { 'id': messurementUnit.id }) }}">{{ messurementUnit.id }}</a></td>
+                <td>{{ messurementUnit.name }}</td>
+                <td>{% if messurementUnit.status %}Yes{% else %}No{% endif %}</td>
+                <td>{% if messurementUnit.dateCreate %}{{ messurementUnit.dateCreate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if messurementUnit.dateUpdate %}{{ messurementUnit.dateUpdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('messurementunits_show', { 'id': messurementUnit.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('messurementunits_edit', { 'id': messurementUnit.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('messurementunits_new') }}">Create a new messurementUnit</a>
+        </li>
+    </ul>
+{% endblock %}

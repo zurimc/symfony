@@ -1,0 +1,29 @@
+AppBundle\Entity\products:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\productsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '50'
+        description:
+            type: string
+            length: '50'
+        presentation:
+            type: decimal
+            precision: '8'
+            scale: '2'
+        price:
+            type: decimal
+            precision: 10
+            scale: '2'
+    oneToOne:
+        mesurementUnit:
+            targetEntity: AppBundle\Entity\messurementUnits
+    lifecycleCallbacks: {  }

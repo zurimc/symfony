@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   <div class="container">
+        <h1>Creación de unidades de medida</h1>
+
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="form-group">
+            <label >Nombre</label>
+            {{ form_widget(form.name) }}
+            </div>
+        </div>
+        <div class="container"></div>
+            <input type="submit"class="btn btn-success" value="Create" />
+        </div>
+        <div style="display:none">
+            {{ form_widget(form) }}</div>
+        {{ form_end(form) }}
+    <div class="container">
+        <ul>
+            <li>
+                <a href="{{ path('messurementunits_index') }}">Volver a la lista</a>
+            </li>
+        </ul>
+    </div>
+   </div>
+{% block javascripts %}
+   {% if app.session.flashBag %}
+   <script type="text/javascript">
+   {% for msg in app.session.flashBag.get('msg') %}
+            alert('{{ msg }}')
+    {% endfor %}
+   </script>
+   {% endif %}
+{% endblock %}
+{% endblock %}
+

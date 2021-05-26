@@ -1,0 +1,22 @@
+AppBundle\Entity\messurementUnits:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\messurementUnitsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '20'
+            unique: true
+        status:
+            type: boolean
+        dateCreate:
+            type: datetime
+        dateUpdate:
+            type: datetime
+    lifecycleCallbacks: {  }

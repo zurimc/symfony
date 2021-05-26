@@ -1,0 +1,7 @@
+homepage:
+  resource: "@AppBundle/Resources/config/routing/app.yml"
+  prefix: /
+
+messurementunits:
+    resource: "@AppBundle/Resources/config/routing/messurementunits.yml"
+    prefix: /messurementunits
